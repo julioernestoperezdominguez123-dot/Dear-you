@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nuestro Amor ❤️</title>
+  <style>
+    :root {
+      --primary: #ff4b6e;
+      --primary-hover: #e03a5b;
+      --bg: #fff0f3;
+      --card-bg: #ffffff;
+      --text: #2d2d2d;
+      --subtext: #666;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: var(--card-bg);
+      max-width: 480px;
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(255, 75, 110, 0.15);
+      padding: 30px 24px;
+      text-align: center;
+    }
+
+    .header-heart {
+      font-size: 3rem;
+      animation: pulse 1.5s infinite;
+      margin-bottom: 10px;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--subtext);
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+    }
+
+    .photo-frame {
+      width: 100%;
+      height: 260px;
+      border-radius: 15px;
+      overflow: hidden;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .counter-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--subtext);
+      margin-bottom: 12px;
+    }
+
+    .counter-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .counter-box {
+      background: #fff5f7;
+      padding: 12px 5px;
+      border-radius: 12px;
+      border: 1px solid #ffe0e6;
+    }
+
+    .counter-box .number {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--primary);
+      display: block;
+    }
+
+    .counter-box .label {
+      font-size: 0.75rem;
+      color: var(--subtext);
+    }
+
+    .message-box {
+      background: #fdfbfb;
+      border-left: 4px solid var(--primary);
+      padding: 15px;
+      border-radius: 8px;
+      text-align: left;
+      margin-bottom: 25px;
+      font-style: italic;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .music-player {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .music-icon {
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+
+    audio {
+      width: 100%;
+      height: 36px;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header-heart">❤️</div>
+    <h1>Carlos & Sofía</h1>
+    <p class="subtitle">Construyendo nuestra historia juntos</p>
+
+    <!-- Foto de la pareja -->
+    <div class="photo-frame">
+      <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80" alt="Nuestra Foto" id="couple-photo">
+    </div>
+
+    <!-- Contador de tiempo -->
+    <div class="counter-title">Llevamos juntos</div>
+    <div class="counter-grid">
+      <div class="counter-box">
+        <span class="number" id="days">0</span>
+        <span class="label">Días</span>
+      </div>
+      <div class="counter-box">
+        <span class="number" id="hours">0</span>
+        <span class="label">Horas</span>
+      </div>
+      <div class="counter-box">
+        <span class="number" id="minutes">0</span>
+        <span class="label">Minutos</span>
+      </div>
+      <div class="counter-box">
+        <span class="number" id="seconds">0</span>
+        <span class="label">Segundos</span>
+      </div>
+    </div>
+
+    <!-- Mensaje especial -->
+    <div class="message-box">
+      "Gracias por cada momento a mi lado, por tus sonrisas y por hacer de cada día algo especial. ¡Te amo!"
+    </div>
+
+    <!-- Reproductor de música -->
+    <div class="music-player">
+      <div class="music-icon">🎵</div>
+      <audio controls autoplay loop>
+        <!-- Reemplaza con el link de tu canción favorita -->
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Tu navegador no soporta el reproductor de audio.
+      </audio>
+    </div>
+
+    <footer>Hecho con ❤️</footer>
+  </div>
+
+  <script>
+    // 1. Configura la fecha en la que iniciaron su relación (Año, Mes - 1, Día)
+    // Nota: Los meses en JS van de 0 (Enero) a 11 (Diciembre).
+    // Ejemplo: 14 de Febrero de 2023 -> new Date(2023, 1, 14)
+    const startDate = new Date(2023, 1, 14, 0, 0, 0);
+
+    function updateCounter() {
+      const now = new Date();
+      const diff = now - startDate;
+
+      const seconds = Math.floor((diff / 1000) % 60);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+      document.getElementById('days').innerText = days;
+      document.getElementById('hours').innerText = hours;
+      document.getElementById('minutes').innerText = minutes;
+      document.getElementById('seconds').innerText = seconds;
+    }
+
+    setInterval(updateCounter, 1000);
+    updateCounter();
+  </script>
+</body>
+</html>
